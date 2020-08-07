@@ -7,11 +7,7 @@ html = Template(Path('G:/Python projects/EmailProject/venv/index.html').read_tex
 
 email = EmailMessage()
 email['from'] = 'Dummy'
-email['to'] = ['arunmsd02@gmail.com']
-# ['soumya.sangote@gmail.com','arunmsd02@gmail.com','suprithatn@gmail.com']
-email1 = EmailMessage()
-email1['from'] = 'andrei@zerotomastery.io'
-email1.get_content()
+email['to'] = ['email1','email2','email3'] # Here we can add any number of emails to list or text file with list of emails can be given
 
 
 email['subject'] = 'You won 1 Lakh rupees!'
@@ -19,10 +15,9 @@ email['subject'] = 'You won 1 Lakh rupees!'
 email.set_content(html.substitute(name = 'Enjoy'),'html')  # name will replaced in $ sign in html file
 
 
-with smtplib.SMTP(host='smtp.gmail.com', port=587) as smtp:
+with smtplib.SMTP(host='smtp.gmail.com', port=587) as smtp:  #using gmail as host server through port 587
     smtp.ehlo()
     smtp.starttls()
-    smtp.login('dummymailfromarun@gmail.com','dummy@1234')
+    smtp.login('user email id,'user password')
     smtp.send_message(email)
-    print(email1)
     print('Email Sent..Wow!')
